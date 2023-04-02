@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-//@RequestMapping("/openai")
+@RequestMapping("/openai")
 @Api(tags = "openai接口")
 public class OpenAiProxyController {
 
@@ -30,7 +30,7 @@ public class OpenAiProxyController {
     @Value("${openai.token}")
     private String token;
 
-    @PostMapping("/gpt")
+    @PostMapping("/chat-3.5")
     @ApiOperation(value="对话接口" ,notes = "对话接口")
     public ChatCompletionResult openaiApiChat(@RequestBody ChatCompletionRequest param){
         log.info("请求参数{}",param);

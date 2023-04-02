@@ -4,6 +4,7 @@ import com.theokanning.openai.completion.chat.ChatMessage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
+import lombok.Data;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Date $ $
  */
 @ApiModel("对话")
+@Data
 public class ChatCompletionReq {
 
     @ApiModelProperty("对话列表")
@@ -20,5 +22,6 @@ public class ChatCompletionReq {
 
     @ApiModelProperty("首次开启对话角色")
     String role;
+
 
 }
