@@ -6,7 +6,7 @@ import com.theokanning.openai.image.CreateImageRequest;
 
 class OpenAiApiExample {
     public static void main(String... args) {
-        String token = "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";
+        String token = "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";
         OpenAiService service = new OpenAiService(token);
 
         System.out.println("\nCreating completion...");
