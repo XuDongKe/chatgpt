@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-//@RequestMapping("/chat")
+@RequestMapping("/api")
 @Api(tags = "chatgpt-3.5对话接口")
 public class ChatController {
 
@@ -36,7 +36,7 @@ public class ChatController {
         String complication = chatService.complication(chatCompletionReq);
         return Result.success(complication);
     }
-    @PostMapping("gpt")
+    @PostMapping("/gpt")
     @Deprecated
     @ApiOperation("单条回复")
     public String get(@RequestBody JSONObject prompt, HttpServletResponse response){
