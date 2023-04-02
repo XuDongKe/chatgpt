@@ -39,13 +39,12 @@ public class ChatController {
     @PostMapping("gpt")
     @Deprecated
     @ApiOperation("单条回复")
-    public String get(@RequestBody JSONObject json, HttpServletResponse response){
-        RestTemplate client = new RestTemplate();
-        log.info("请求参数{}",json);
+    public String get(@RequestBody JSONObject prompt, HttpServletResponse response){
+        log.info("请求参数{}",prompt);
         ChatCompletionReq chatCompletionReq =new ChatCompletionReq();
         List<ChatMessage> messageList =new ArrayList<ChatMessage>();
         ChatMessage chatMessage =new ChatMessage();
-        chatMessage.setContent(json.getString("prompt"));
+        chatMessage.setContent(prompt.getString("prompt"));
         chatMessage.setRole("user");
         messageList.add(chatMessage);
         chatCompletionReq.setMessages(messageList);
