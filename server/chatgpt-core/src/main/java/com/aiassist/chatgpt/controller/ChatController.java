@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("")
 @Api(tags = "chatgpt-3.5对话接口")
 public class ChatController {
 
