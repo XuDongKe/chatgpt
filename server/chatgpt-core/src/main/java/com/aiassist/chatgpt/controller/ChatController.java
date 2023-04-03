@@ -4,6 +4,7 @@ import com.aiassist.chatgpt.entity.ChatCompletionReq;
 import com.aiassist.chatgpt.entity.Result;
 import com.aiassist.chatgpt.service.ChatService;
 import com.alibaba.fastjson2.JSONObject;
+import com.theokanning.openai.completion.chat.ChatCompletionChoice;
 import com.theokanning.openai.completion.chat.ChatMessage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,6 +37,16 @@ public class ChatController {
     public Result<String> limitChat(@RequestBody ChatCompletionReq chatCompletionReq){
         String complication = chatService.complication(chatCompletionReq);
         return Result.success(complication);
+    }
+
+    @PostMapping("/complication/3.5/list")
+    @ApiOperation("对话接口")
+    public HashMap<String,List> limitChatList(@RequestBody ChatCompletionReq chatCompletionReq){
+        List<ChatCompletionChoice> list=chatService.complicationList(chatCompletionReq);
+        HashMap map= new HashMap();
+        map.put("choices",list);
+        return map;
+
     }
     @PostMapping("/gpt")
     @Deprecated

@@ -20,8 +20,11 @@ public class ChatCompletionReq {
     @ApiModelProperty("对话列表")
     List<ChatMessage> messages;
 
-    @ApiModelProperty("首次开启对话角色")
-    String role;
+    @ApiModelProperty("模型")
+    String model;
+
+    @ApiModelProperty("对话长度")
+    String tokensLength;
 
 
 }
