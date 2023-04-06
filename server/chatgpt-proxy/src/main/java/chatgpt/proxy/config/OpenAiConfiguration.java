@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.Duration;
+
 /**
  * @Description
  * @Author Peter Ke
@@ -19,6 +21,6 @@ public class OpenAiConfiguration {
     @Bean
     public OpenAiService getOpenAiService(){
 
-        return new OpenAiService(token);
+        return new OpenAiService(token,Duration.ofSeconds(60L));
     }
 }
